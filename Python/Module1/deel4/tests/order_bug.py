@@ -1,3 +1,4 @@
+
 def vraag_getal(getal):
     getal = int(input("Voer het getal in: "))
     return getal
@@ -5,7 +6,7 @@ def vraag_getal(getal):
 def deel_getallen(nr1, nr2):
 
     return  nr1/nr2
-def minmax(nr1, nr2):
+def vergelijken(nr1, nr2):
     if nr1 > nr2:
         maximum, minimum = nr1, nr2
     elif nr1 < nr2:
@@ -27,5 +28,5 @@ if getal_2 == 0:
 else:
     ant = deel_getallen(getal_1, getal_2)
     print(f'{getal_1} gedeeld door {getal_2} is gelijk aan {ant}')
-    minmax(getal_1,getal_2)
+    vergelijken(getal_1,getal_2)
 

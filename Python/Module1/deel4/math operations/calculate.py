@@ -36,4 +36,9 @@ result1 = (nr1 - (nr4 - nr3)) / (nr2 + nr3)
 result2 = subtract(nr1, subtract(nr4,nr3)) / add(nr2,nr3)
 test('expression-5', result1, result2)
 
+# Bonusopdracht
+result1 = (nr1+nr2)*nr3/nr4+(nr1-nr2)
+result2 = add(divide(multiply(add(nr1, nr2), nr3), nr4), (subtract(nr1,nr2)))
+test('expression-5', result1, result2)
+
 report()
