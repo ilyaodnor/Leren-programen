@@ -21,3 +21,5 @@ def divide(nr1: float, nr2: float) -> float:
 def calculate_cilinder_content(diametr, heigt):
   return multiply(heigt,(multiply(pow(divide(diametr,2),2), math.pi)))
 
+def afronden(geld):
+  return round(geld/5, 2)
