@@ -50,57 +50,84 @@ else:
 print('Je zie een deur achter het standbeeld.')
 print('')
 time.sleep(4)
-
-# === [kamer 3] === #
-zombie_attack = 1
-zombie_defense = 0
-zombie_health = 2
-
-time.sleep(1)
-print('Je loopt tegen een zombie aan.')
-player_hit_damage = (player_attack - zombie_defense)
-zombie_hit_damage = (zombie_attack - player_defense)
-attack_counter = 0
 while True:
-    zombie_health = zombie_health-(player_attack - zombie_defense)
-    print('De zombie raakt jou.')
-    time.sleep(1)
-    player_health = player_health-(zombie_attack-player_defense)
-    print("Je raakt de zombie.")    
-    time.sleep(1)
-    attack_counter+=1
-    if player_health>0 and zombie_health <= 0:
-        print(f'In {attack_counter} rondes versla je de zombie.')
-        print('Je ga verder')
-        time.sleep(1)
-        print(f'Je health is nu  {player_health}')
-        break
-    elif zombie_health>0 and player_health <= 0:
-        print('De zombie is te sterk voor je ')
-        time.sleep(1)
-        print('Game over ')
-        exit()
-print('')
-time.sleep(1)
+    try:
+        kamera1_of_2 = int(input('Er zijn twee deuren in deze kamer. Door welke wil je gaan, de eerste of de tweede?(1/2): '))
+        if kamera1_of_2 == 1 or 2:
+            break
+        else:
+            print('Kies het kamer')
+    except ValueError:
+        print('Kies het kamer')
+    # === [kamer 3] === #
+if kamera1_of_2 == 1:
+    zombie_attack = 1
+    zombie_defense = 0
+    zombie_health = 2
 
-# === [kamer 4] === #
-item = ['schild', 'zwaard']
-baf = random.choice(item)
-if baf == 'schild':
-    player_defense += 1
-elif baf == 'zwaard':
-    player_attack+=2
+    time.sleep(1)
+    print('Je loopt tegen een zombie aan.')
+    player_hit_damage = (player_attack - zombie_defense)
+    zombie_hit_damage = (zombie_attack - player_defense)
+    attack_counter = 0
+    while True:
+        zombie_health = zombie_health-(player_attack - zombie_defense)
+        print('De zombie raakt jou.')
+        time.sleep(1)
+        player_health = player_health-(zombie_attack-player_defense)
+        print("Je raakt de zombie.")    
+        time.sleep(1)
+        attack_counter+=1
+        if player_health>0 and zombie_health <= 0:
+            print(f'In {attack_counter} rondes versla je de zombie.')
+            print('Je ga verder')
+            time.sleep(1)
+            print(f'Je health is nu  {player_health}')
+            break
+        elif zombie_health>0 and player_health <= 0:
+            print('De zombie is te sterk voor je ')
+            time.sleep(1)
+            print('Game over ')
+            exit()
+    print('')
+    time.sleep(1)
+    # === [kamer 4] === #
+    item = ['schild', 'zwaard']
+    baf = random.choice(item)
+    if baf == 'schild':
+        player_defense += 1
+    elif baf == 'zwaard':
+        player_attack+=2
 
-print('Je duwt hem open en stap een hele lange kamer binnen.')
-time.sleep(2)
-print(f'In deze kamer staat een tafel met daarop een {baf}.')
-time.sleep(2)
-print(f'Je pakt het {baf} op en houd het bij je.')
-time.sleep(2)
-print('Op naar de volgende deur.')
-time.sleep(2)
-print('')
-time.sleep(3)
+    print('Je duwt hem open en stap een hele lange kamer binnen.')
+    time.sleep(2)
+    print(f'In deze kamer staat een tafel met daarop een {baf}.')
+    time.sleep(2)
+    print(f'Je pakt het {baf} op en houd het bij je.')
+    time.sleep(2)
+    print('Op naar de volgende deur.')
+    time.sleep(2)
+    print('')
+    time.sleep(3)
+
+elif kamera1_of_2 == 2:
+    item = ['schild', 'zwaard']
+    baf = random.choice(item)
+    if baf == 'schild':
+        player_defense += 1
+    elif baf == 'zwaard':
+        player_attack+=2
+
+    print('Je duwt hem open en stap een hele lange kamer binnen.')
+    time.sleep(2)
+    print(f'In deze kamer staat een tafel met daarop een {baf}.')
+    time.sleep(2)
+    print(f'Je pakt het {baf} op en houd het bij je.')
+    time.sleep(2)
+    print('Op naar de volgende deur.')
+    time.sleep(2)
+    print('')
+    time.sleep(3)
 
 zombie2_attack = 2
 zombie2_defense = 0
