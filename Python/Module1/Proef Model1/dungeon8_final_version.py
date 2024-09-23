@@ -1,5 +1,5 @@
 import time, math,random
-from gevecht import gevecht, goblin_shop
+from functions import gevecht, goblin_shop
 
 player_attack = 1
 player_defense = 0
@@ -33,10 +33,12 @@ time.sleep(1)
 while True:
     try:
         kamera1_of_2 = int(input('Er zijn twee deuren in deze kamer. Door welke wil je gaan, de eerste of de tweede?(1/2): '))
-        if kamera1_of_2 == 1 or 2:
+        if kamera1_of_2 == 1:
             break
+        elif kamera1_of_2 == 2:
+             break
         else:
-            print('Kies het kamer')
+            print('Kies het kamer(1/2)')
             continue
     except ValueError:
         print('Kies het kamer')
@@ -80,16 +82,21 @@ if kamera1_of_2 == 1:
     else:
         print('Er gebeurt niets....')
     
-    while True:
-        try:
-            kamera1_of_2 = int(input('Er zijn twee deuren in deze kamer. Door welke wil je gaan, de eerste of de tweede?(1/2): '))
-            if kamera1_of_2 == 1 or kamera1_of_2 == 2:
-                break
-            else:
+        while True:
+            try:
+                kamera1_of_2 = int(input('Er zijn twee deuren in deze kamer. Door welke wil je gaan, de eerste of de tweede?(1/2): '))
+                if kamera1_of_2 == 1:
+                    break
+                elif kamera1_of_2 == 2:
+                    break
+                else:
+                    print('Kies het kamer(1/2)')
+                    continue
+            except ValueError:
                 print('Kies het kamer')
-                continue
-        except ValueError:
-            print('Kies het kamer')
+
+
+
 
     if kamera1_of_2 == 1:
         zombie_attack = 1
@@ -227,9 +234,14 @@ else:
 
 while True:
     try:
-        kamera1_of_2 = int(input('Hier zie je nog twee deuren. Waar kom je in?'))
-        if kamera1_of_2== 1 or 2:
-            break      
+        kamera1_of_2 = int(input('Er zijn twee deuren in deze kamer. Door welke wil je gaan, de eerste of de tweede?(1/2): '))
+        if kamera1_of_2 == 1:
+                    break
+        elif kamera1_of_2 == 2:
+                    break
+        else:
+                    print('Kies het kamer(1/2)')
+                    continue    
     except ValueError:
         print('Voer in 1 of 2.')
 if kamera1_of_2 == 1:
@@ -323,6 +335,7 @@ if player_health<0:
     print('Vaiand was te sterk voor je.')
     print('game over')
     exit()
+print(player_health)
 
 
 # === [kamer 5] === #
