@@ -1,5 +1,5 @@
 import time, math,random
-
+from functions import gevecht
 
 player_attack = 1
 player_defense = 0

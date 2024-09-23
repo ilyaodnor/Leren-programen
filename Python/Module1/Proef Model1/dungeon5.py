@@ -162,29 +162,28 @@ zombie2_defense = 0
 zombie2_health = 3
 
 time.sleep(1)
-print('Je loopt tegen een zombie aan.')
 
 zombie_hit_damage = (zombie2_attack - player_defense)
 player_hit_damage = (player_attack - zombie2_defense)
 attack_counter2 = 0
 
-print('Je loopt tegen een zombie aan.')
+print('Je loopt tegen een rover aan.')
 while True:
     zombie_health2= zombie2_health-(player_attack - zombie2_defense)
-    print('De zombie raakt jou.')
+    print('De rover raakt jou.')
     time.sleep(1)
     player_health = player_health-(zombie2_attack-player_defense)
-    print("Je raakt de zombie.")   
+    print("Je raakt de rover.")   
     time.sleep(1) 
     attack_counter2+=1
     if player_health>0 and zombie2_health == 0:
-        print(f'In {attack_counter} rondes versla je de zombie.')
+        print(f'In {attack_counter} rondes versla je de rover.')
         time.sleep(1)
         print('Je ga verder')
         print(f'Je health is nu  {player_health}')
         break
     elif zombie2_health>0 and player_health == 0:
-        print('De zombie is te sterk voor je ')
+        print('De rover is te sterk voor je ')
         time.sleep(1)
         print('Game over ')
         

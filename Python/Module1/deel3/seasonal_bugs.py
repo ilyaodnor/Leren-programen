@@ -17,5 +17,6 @@ while True:
         elif gekozen_seizoen == 'd':
             weer_type = 'koud'
             print(f'Dus jij houd van {weer_type} weer!')
+        
     except ValueError:
         print('error')

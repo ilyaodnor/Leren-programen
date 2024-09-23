@@ -68,7 +68,7 @@ print('')
 time.sleep(3)
 
 # === [kamer 4] === #
-zombie_attack = 10
+zombie_attack = 1
 zombie_defense = 0
 zombie_health = 2
 print(f'Dapper met je nieuwe {baf} loop je de kamer binnen.')

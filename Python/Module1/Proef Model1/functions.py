@@ -33,7 +33,7 @@ def gevecht(player_health, player_defense, player_attack, vijand_naam, vijand_at
 def goblin_shop(rupee, player_defense, player_attack, sleutel):
     om_te_kopen = [1, 2, 3]  # 1: Schild, 2: Zwaard, 3: Sleutel
     if rupee >= 3:
-        print('Je hebt genoeg rupees voor een schild, zwaard en sleutel.')
+        print(f'Je hebt genoeg rupees voor een {om_te_kopen}')
         player_defense += 1
         player_attack += 2
         sleutel = True
