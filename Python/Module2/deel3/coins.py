@@ -3,7 +3,7 @@
 # purpose of program: 
 # structure of program: 
 
-coinValues = [50,20,10,5,2,1] #maakt een lijst met coins
+coinValues = [200,100,50,20,10,5,2,1] #maakt een lijst met coins
 
 toPay = int(float(input('Amount to pay: '))* 100) #input to pay in euro, convertation in cents
 paid = int(float(input('Paid amount: ')) * 100) #paid input in cents
