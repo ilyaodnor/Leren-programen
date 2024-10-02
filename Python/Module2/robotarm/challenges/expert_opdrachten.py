@@ -2,13 +2,33 @@ import sys
 sys.path.insert(0,'/Users/ilya/Documents/GitHub/School/Softwere dev./python/Leren-programen/Python/Module2/robotarm')
 from RobotArm import RobotArm
 from expert import challenges
-robotArm = RobotArm(challenges[3],2)
-aantaal =1
-while robotArm.stackEmpty() == False:
+robotArm = RobotArm(challenges[4],2)
+
+for i in range(6):
+    aantaal =0
     robotArm.grab()
-    for i in range(aantaal):robotArm.moveRight()
-    robotArm.drop()
-    for i in range(aantaal):robotArm.moveLeft() 
-    aantaal+=1
+    if robotArm.scan() == 'red':
+        while robotArm.stackIndex()!=7:
+            robotArm.moveRight()
+            aantaal+=1
+        robotArm.drop()
+        for i in range(aantaal-1):robotArm.moveLeft()
+        aantaal =0
+    elif robotArm.scan() == 'blue':
+        while robotArm.stackIndex()!=9:
+            robotArm.moveRight()
+            aantaal+=1
+        robotArm.drop()
+        for i in range(aantaal-1):robotArm.moveLeft()
+        aantaal =0
+    elif robotArm.scan() == 'green':
+        while robotArm.stackIndex()!=8:
+            robotArm.moveRight()
+            aantaal+=1
+        robotArm.drop()
+        for i in range(aantaal-1):robotArm.moveLeft()
+        aantaal =0
+    else:
+        break
 robotArm.showSolution()
 robotArm.report()
