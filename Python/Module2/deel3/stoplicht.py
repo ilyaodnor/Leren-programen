@@ -1,7 +1,7 @@
 import time 
 from termcolor import colored, cprint, COLORS
 while True:
-    a = 30
+    a = 3
     for i in range (1,3):
        
         print(colored(f'*** {a}', 'red'))

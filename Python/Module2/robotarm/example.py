@@ -8,13 +8,6 @@ from challenges.basic import challenges
 robotArm = RobotArm.RobotArm(challenges[1],0)
 
 # your code starts here:
-robotArm.scan()
-robotArm.moveRight()
-robotArm.moveRight()
-robotArm.grab()
-robotArm.moveLeft()
-robotArm.moveLeft()
-robotArm.drop()
 
 
 # your code ends here
