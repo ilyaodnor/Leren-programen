@@ -1,6 +1,4 @@
 import fruitmand
-weight = []
-weight2 = []
 totaal = 0
 for d in fruitmand.fruitmand:
     totaal+=d['weight']

@@ -15,8 +15,7 @@ if leeftijd < 18:
     print('Sorry, je mag niet naar binnen')
     time.sleep(2)
     print(f'Probeer het in {18-leeftijd} jaar nog eens.')
-    exit()
-
+    
 elif leeftijd >= 18:
     naam = input('Wat is je naam? ').lower()
     if naam not in VIP_LIST:
