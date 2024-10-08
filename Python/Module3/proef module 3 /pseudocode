@@ -1,0 +1,13 @@
+Maak een lege lijst "namen";
+Terwijl WAAR:
+Voer "naam" in;
+Voeg "naam" toe aan de lijst "namen";
+Als de lengte van de lijst "namen" >= 3:
+    Vraag de gebruiker: "Wilt u nog een naam invoeren? (ja/nee)";
+    Als het antwoord == "nee", verbreek de lus;
+Maak een kopie van de lijst "namen" -> "kopie namen";
+Shuffle de lijst "kopie namen";
+Voor elke index i in het bereik van de lengte van de lijst "namen":
+    Als "namen[i]" == "kopie namen[i]", shuffle de lijst "kopie namen" opnieuw;
+Voor elke index i in het bereik van de lengte van de lijst "namen":
+    Print "namen[i]" en "kopie namen[i]" (wie trekt wie).

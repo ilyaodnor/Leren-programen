@@ -1,0 +1,28 @@
+
+
+Start het spel.
+Genereer een willekeurig getal tussen 1 en 1000.
+Dit getal is het doel dat de speler moet raden.
+Stel de teller voor het aantal rondes in op 0.
+Stel de score in op 0.
+Vraag de speler of hij wil spelen.
+Als de speler "ja" antwoordt, ga naar de volgende stap.
+Als de speler "nee" antwoordt, stop het spel.
+Herhaal het volgende totdat de speler besluit te stoppen:
+Verhoog de teller voor rondes met 1.
+Geef de speler 20 pogingen om het getal te raden.
+Voor elke poging:
+Vraag de speler om een getal in te voeren.
+Als het ingevoerde getal gelijk is aan het willekeurige getal:
+Meld dat de speler heeft gewonnen.
+Verhoog de score met 1.
+Geef het totale aantal rondes dat de speler heeft gespeeld weer.
+Vraag de speler of hij nog een keer wil spelen.
+Als het ingevoerde getal groter is dan het willekeurige getal:
+Geef een hint dat het getal te hoog is.
+Als het ingevoerde getal kleiner is dan het willekeurige getal:
+Geef een hint dat het getal te laag is.
+Als het ingevoerde getal binnen 20 van het willekeurige getal ligt:
+Geef een hint dat de speler heel warm is.
+Als het ingevoerde getal tussen 20 en 50 van het willekeurige getal ligt:
+Geef een hint dat de speler warm is.
