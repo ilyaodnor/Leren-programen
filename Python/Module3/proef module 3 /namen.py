@@ -1,4 +1,6 @@
 import random
+import os
+import time
 
 namen = {}  
 while True:
@@ -8,22 +10,34 @@ while True:
         namen[name] = name  
         
         if len(namen) >= 3:  
-            ja_nee = input('Wilt u nog een naam invoeren? (ja/nee)').lower()
+            ja_nee = input('Wilt u nog een naam invoeren? (ja/nee) ').lower()
             if ja_nee == 'nee':
                 break  
     else:
         print('Voer een nieuwe naam in!!')
 
-namen_kopie = namen.copy()
+namen_kopie = list(namen.keys()) 
+wie_is_wie = {}
 
-keys = list(namen_kopie.keys())  
-random.shuffle(keys)  
+for name in namen:
+    random_name = random.choice(namen_kopie)
+    
+    while random_name == name:  
+        random_name = random.choice(namen_kopie)
 
-print("\nOriginele namen en hun koppelingen:")
-for key in namen:
-    print(f"{key} heeft zichzelf")
+    wie_is_wie[name] = random_name
+    namen_kopie.remove(random_name)  
 
-print("\nWillekeurig gekoppelde namen (na shuffelen):")
-for i, key in enumerate(namen):
-    print(f"{key} trekt -- {keys[i]}")
-print(f'kopie namen: {namen_kopie}')
+pogingen = 0
+while pogingen != len(namen): 
+    os.system('clear')
+    
+    a =input('Voer in je naam: ')
+    if a in wie_is_wie:
+        value = wie_is_wie[a]
+        print(f'{a} krijgt {value}')
+        pogingen+=1
+
+    input('Druk op enter om door te gaan : ')
+input('enter')
+print(f'Kopie namen: \n{wie_is_wie}')
