@@ -61,6 +61,7 @@ while True:
             elif gebr_operation == 'H':
                 print(f'{result} : 2 = {result1}')
             result = result1
-
+        else:
+            print('Voer in een letter. ')
 
 print(f'Jouw resultaat is: {result}')
