@@ -1,4 +1,5 @@
 from functions import addition, substracrion, multiplication, division, add, sub, mult, div
+from test_lib import test, report
 
 operations = {
     'A': lambda num1,num2: num1+num2,
@@ -65,3 +66,6 @@ while True:
             print('Voer in een letter. ')
 
 print(f'Jouw resultaat is: {result}')
+expect = 22 * 33+1-2/2
+test('result 22 * 33+1-2/2: ', expect, result)
+report()
