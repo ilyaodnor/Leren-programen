@@ -1,6 +1,6 @@
-def persoon(dicts = {}):
+def persoon():
     naam = input('Voer in je naam: ').capitalize()
-    
+    dicts = {}
     while True:
         try:
             leeftijd = int(input('Hoe oud ben je? '))

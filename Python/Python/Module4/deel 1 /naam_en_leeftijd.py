@@ -10,7 +10,7 @@ while True:
 os.system('clear')
 
 for naam, details in personen_dict.items():
-    if details['leeftijd']<18:
+    if details['leeftijd'] <=18:
         print(f"In {termcolor.colored(details['woonplaats'], 'yellow')} woont {termcolor.colored(naam, 'green')}, die {termcolor.colored('nog niet', 'red')} volwassen is. ")
     else:
         print(f"In {termcolor.colored(details['woonplaats'], 'yellow')} woont {termcolor.colored(naam, 'green')}, die al {termcolor.colored('nog niet', 'red')} volwassen is. ")
