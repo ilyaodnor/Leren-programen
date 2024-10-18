@@ -39,7 +39,7 @@ while True:
     elif gebr_operation in operations:
         if gebr_operation in ['A', 'B', 'C', 'D']:
             num2 = int(input(f'Welk getal {["optellen", "aftrekken", "vermenigvuldigen", "delen"][["A", "B", "C", "D"].index(gebr_operation)]} bij {result}: '))
-            if num2 == 0:
+            if num2 == 0 and gebr_operation == 'D':
                     print('Dat kan niet. ')
                     continue
             result1 = operations[gebr_operation](result, num2)
