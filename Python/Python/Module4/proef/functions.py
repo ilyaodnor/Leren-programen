@@ -30,25 +30,20 @@ def getFromListByKeyIs(list:list, key:str, value:any) -> list:
     return [item for item in list if item.get(key) == value]
 
 def getAdventuringPeople(people:list) -> list:
-    lijst = []
-    for i in people:
-        if i['adventuring'] == True:
-            lijst.append(i)
-    return lijst 
+    return getFromListByKeyIs(people, 'adventuring', True) 
 
 def getShareWithFriends(friends:list) -> list:
-    lijst = []
-    for i in friends:
-        if i['shareWith'] == True:
-            lijst.append(i)
-    return lijst 
+    return getFromListByKeyIs(friends, 'shareWith', True) 
+def getAdventuringFriends(friends: list) -> list:
+    adventuring_friends = getAdventuringPeople(friends)
+    sharing_friends = getShareWithFriends(friends)
+    return [friend for friend in adventuring_friends if friend in sharing_friends]
 
-def getAdventuringFriends(friends:list) -> list:
-    lijst = []
-    for i in friends:
-        if i['shareWith'] == True and i['adventuring'] == True:
-            lijst.append(i)
-    return lijst 
+
+
+
+
+
 
 ##################### O07 #####################
 
@@ -91,19 +86,20 @@ def getItemsValueInGold(items:list) -> float:
         if i['price']['type'] == 'platinum':
             cost.append(platinum2gold(i['price']['amount'])*i['amount'])
         elif i['price']['type'] == 'gold':
-            a =float(i['price']['amount'])*i['amount']/1
-            cost.append(a)
+            cost.append(i['price']['amount']*i['amount'])
         elif i['price']['type'] == 'silver':
             cost.append(silver2gold(i['price']['amount'])*i['amount'])
         elif i['price']['type'] == 'copper':
             cost.append(copper2gold(i['price']['amount'])*i['amount'])
-    return round(sum(cost),2)
+    return float(round(sum(cost),2))
 
 ##################### O09 #####################
 
 def getCashInGoldFromPeople(people:list) -> float:
-    pass
-
+    lijst = []
+    for i in people:
+        lijst.append(platinum2gold(i['cash']['platinum'])+i['cash']['gold']+silver2gold(i['cash']['silver'])+copper2gold(i['cash']['copper']))
+    return float(sum(lijst))
 ##################### O10 #####################
 
 def getInterestingInvestors(investors:list) -> list:
