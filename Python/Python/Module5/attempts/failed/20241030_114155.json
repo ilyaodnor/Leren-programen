@@ -1,0 +1,24 @@
+{
+    "roomorder": "1,7,5",
+    "start": "30-10-2024 11:41:55",
+    "end": "30-10-2024 11:41:55",
+    "data": {
+        "player": {
+            "noice": 0,
+            "pickups": []
+        },
+        "route": {
+            "routetaken": [],
+            "doorcode": "",
+            "errors": [],
+            "roomanswers": []
+        },
+        "story": {
+            "fullstory": [
+                "Je bent best wel sneaky, je probeert vals te spelen."
+            ],
+            "choices": [],
+            "errors": []
+        }
+    }
+}

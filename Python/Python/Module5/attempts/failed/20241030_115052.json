@@ -1,0 +1,33 @@
+{
+    "roomorder": "1,7,5,8,3,6,2,10",
+    "start": "30-10-2024 11:50:50",
+    "end": "30-10-2024 11:50:51",
+    "data": {
+        "player": {
+            "noice": 0,
+            "pickups": []
+        },
+        "route": {
+            "routetaken": [
+                "step A : ?"
+            ],
+            "doorcode": "",
+            "errors": [
+                "stap A : ROOMORDER index 9 not found",
+                "stap A : function room? not found"
+            ],
+            "roomanswers": [
+                "room? : None"
+            ]
+        },
+        "story": {
+            "fullstory": [
+                "...",
+                "Je bent ergens waar je niet verwacht te zijn.",
+                "Je bent verdwaald geraakt in de dungeon."
+            ],
+            "choices": [],
+            "errors": []
+        }
+    }
+}

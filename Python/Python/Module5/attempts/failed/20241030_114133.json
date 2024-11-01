@@ -1,0 +1,33 @@
+{
+    "roomorder": "1,7,5",
+    "start": "30-10-2024 11:41:28",
+    "end": "30-10-2024 11:41:32",
+    "data": {
+        "player": {
+            "noice": 0,
+            "pickups": []
+        },
+        "route": {
+            "routetaken": [
+                "step A : 1"
+            ],
+            "doorcode": "",
+            "errors": [],
+            "roomanswers": [
+                "room1 : b"
+            ]
+        },
+        "story": {
+            "fullstory": [
+                "Je herinnert je alleen nog de val door een diep gat, na een zware aardbeving.",
+                "Versuft sta je op.",
+                "Je ziet links van je een deur en rechts van je een gang met aan het einde een standbeeld.",
+                "Je bent best wel sneaky, je probeert vals te spelen."
+            ],
+            "choices": [
+                "Neem je A) de deur links of B) de gang rechts? : b"
+            ],
+            "errors": []
+        }
+    }
+}
