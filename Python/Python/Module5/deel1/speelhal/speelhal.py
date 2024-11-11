@@ -12,7 +12,6 @@ COLA_PRICE = 2.10
 POPCORN_PRICE = 2.89
 VAT_CODE_H = 'H'
 VAT_CODE_L = 'L'
-
 # ***************** INPUT *****************
 print("SPEELHAL-ENTREE-KASSA")
 answer = input_yes_no("Wilt u bestellen?(J/N)\n").lower()
