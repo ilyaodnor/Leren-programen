@@ -17,6 +17,9 @@ def platinum2gold(amount:int) -> float:
     return amount*25
 
 def getPersonCashInGold(personCash:dict) -> float:
+    if copper2gold(personCash['copper']) + silver2gold(personCash['silver']) + platinum2gold(personCash['platinum'])+ personCash['gold'] == 0:
+        return 0.0
+
     return copper2gold(personCash['copper']) + silver2gold(personCash['silver']) + platinum2gold(personCash['platinum'])+ personCash['gold']
 
 ##################### O05 #####################
@@ -123,10 +126,10 @@ def getTotalInvestorsCosts(investors: list, gear: list) -> float:
         
 ##################### O11 #####################
 
-def getMaxAmountOfNightsInInn(leftoverGold:float, people:int, horses:int) -> int:
+def getMaxAmountOfNightsInInn(leftoverGold:float, people:int, horses:int, COST_INN_HORSE_COPPER_PER_NIGHT, COST_INN_HUMAN_SILVER_PER_NIGHT:float) -> int:
     return int(leftoverGold//(copper2gold(COST_INN_HORSE_COPPER_PER_NIGHT)*horses + silver2gold(COST_INN_HUMAN_SILVER_PER_NIGHT)* people))
 
-def getJourneyInnCostsInGold(nightsInInn:int, people:int, horses:int) -> float:
+def getJourneyInnCostsInGold(nightsInInn:int, people:int, horses:int, COST_INN_HORSE_COPPER_PER_NIGHT, COST_INN_HUMAN_SILVER_PER_NIGHT) -> float:
     return round(float(nightsInInn*(copper2gold(COST_INN_HORSE_COPPER_PER_NIGHT)*horses + silver2gold(COST_INN_HUMAN_SILVER_PER_NIGHT)* people)),2)
 
 ##################### O13 #####################
@@ -144,49 +147,6 @@ def getAdventurerCut(profitGold:float, investorsCuts:list, fellowship:int) -> fl
         return 0.0
 
 ##################### O14 #####################
-
-def getEarnigs(profitGold: float, mainCharacter: dict, friends: list, investors: list) -> list:
-    people = [mainCharacter] + friends + investors
-    earnings = []
-    
-    interestingInvestors = getInterestingInvestors(investors)
-    adventuringFriends = getAdventuringFriends(friends)
-    adventuringInvestors = getAdventuringInvestors(investors)
-
-    investorsCuts = getInvestorsCuts(profitGold, interestingInvestors)
-    totalInvestorCut = sum(investorsCuts)
-    
-    fellowship = 1 + len(adventuringFriends) + len(adventuringInvestors)
-    
-    adventurerCut = round((profitGold - totalInvestorCut) / fellowship, 2)
-
-    for person in people:
-        startGold = getPersonCashInGold(person['cash'])
-        endGold = startGold
-        
-       
-        if person in interestingInvestors:
-            index = interestingInvestors.index(person)
-            endGold += investorsCuts[index]
-        
-       
-        elif person in adventuringFriends or person in adventuringInvestors:
-            endGold += adventurerCut
-        if person == mainCharacter:
-            endGold += adventurerCut
-            endGold += 10 * len(adventuringFriends)  
-
-     
-        if person in adventuringFriends:
-            endGold -= 10
-
-        earnings.append({
-            'name': person['name'],
-            'start': round(startGold, 2),
-            'end': round(endGold, 2)
-        })
-
-    return earnings
 
 ##################### view functions #####################
 

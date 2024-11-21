@@ -29,6 +29,7 @@ story = game.story(ROOMORDER)
 story.print_title('Het verhaal van "The Jumbled Dungeon"')
 story.executeByOrder(0)
 
+story.proccess_attempt(story.finish())
 if story.checkAnswerByOrder(0, 'b'):
     story.executeByOrder(1)
 
@@ -53,5 +54,3 @@ if story.checkAnswerByOrder(2, 'a') or story.checkAnswerByOrder(4, 'b') or story
 
 if story.checkAnswerByOrder(5, 'a') or story.checkAnswerByOrder(7, 'a') or story.checkAnswerByOrder(8, '-'):
     story.executeByOrder(9)
-
-story.proccess_attempt(story.finish())
