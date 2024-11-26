@@ -36,7 +36,7 @@ while pogingen != len(namen):
     a =input('Voer in je naam: ')
     if a in wie_is_wie:
         value = wie_is_wie[a]
-        print(f'{a} krijgt {value}, hij moet kopen {cadeus[value]} voor hem.')
+        print(f'{a} krijgt {value}, jij moet kopen {cadeus[value]} voor hem.')
         pogingen+=1
 
     input('Druk op enter om door te gaan : ')

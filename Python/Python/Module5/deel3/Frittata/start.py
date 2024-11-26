@@ -26,6 +26,7 @@ eggs = ceil(AMOUNT_EGGS/4*nr_persons)
 
 # calculate amount_milk
 milk = round_quarter(AMOUNT_MILK/4*nr_persons)
+print(milk)
 # calculate amount_salt
 salt = round_quarter(AMOUNT_SALT/4*nr_persons)
 # calculate amount_pepper

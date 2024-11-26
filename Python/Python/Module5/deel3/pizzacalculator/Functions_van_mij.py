@@ -20,3 +20,5 @@ def input_check(text, type,expected: list):
             except ValueError:
                 print('Voer in een getal!')
 
+
+

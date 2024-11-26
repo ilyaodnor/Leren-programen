@@ -28,6 +28,8 @@ def round_piece(amount: float) -> int:
 
 # returns amount rounded to the closest decimals: .00 or .25 or .50 or 0.75 unless amount >= 10
 def round_quarter(amount: float) -> float:
+         if  amount<0.25:
+            return 0.25
          return round(amount * 4) / 4 if amount < 10 else amount
 
 # returns single or plural description of a string 'single desciption|plural description' 
