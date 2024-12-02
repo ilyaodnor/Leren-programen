@@ -1,7 +1,7 @@
 import pygame, sys, random, time
 
 CONFIG = {
-		'cell_size': 20,
+		'cell_size': 30,
 		'cols': 8,
 		'rows':	16,
 		'delay': 750,

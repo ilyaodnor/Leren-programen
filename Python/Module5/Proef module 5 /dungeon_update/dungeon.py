@@ -1,5 +1,5 @@
-from dungeon_data import rooms, enemies, player_data
-from Dungeon_functions import print_slow, input_slow, fight, kies_kamer, clear_screen
+from dungeon_data import rooms, enemies, player_data, items_for_sale
+from Dungeon_functions import print_slow, input_slow, fight, kies_kamer, clear_screen, input_check
 import random, time
 
 # === [kamer 0] === #
@@ -40,7 +40,7 @@ def kamer_7():
     else:
         correct = num1 - num2
 
-    answer = int(input_slow(f"Los de som op: {num1} {opper} {num2} = "))
+    answer = int(input_check(f"Los de som op: {num1} {opper} {num2} = ", int))
     
     if answer == correct:
         print_slow("Correct! Je hebt een rubin gekregen.")
@@ -85,7 +85,8 @@ def kamer_8():
                '- Als de dobbelstenen meer dan 7 zijn: +1 Rubin.\n'
                '- Als de dobbelstenen minder dan 7 zijn: -1 HP.')
     while True:
-        if input_slow("Wil je in het casino spelen? (Ja/Nee): ").lower() == "ja":
+        antwoord = input_check("Wil je in het casino spelen? (Ja/Nee): ", str, ['ja','nee'])
+        if antwoord == 'ja':
             roll = random.randint(1, 6) + random.randint(1, 6)
             print_slow(f"De goblin gooit dobbelstenen: {roll}")
             if roll == 7:
@@ -98,8 +99,12 @@ def kamer_8():
             else:
                 print_slow("Je verliest 1 HP!")
                 player_data["hp"] -= 1
-                if player_data['hp'] == 
-        else:
+                if player_data['hp'] == 0:
+                    clear_screen()
+                    print_slow('Je hebt nu 0 HP')
+                    print_slow('Game over')
+                    exit()
+        else: 
             break
     een_of_twee = kies_kamer()
     if een_of_twee:
@@ -111,14 +116,18 @@ def kamer_8():
 
 # === [kamer 9] === #
 def kamer_9():
-    print_slow('Er gebeurt niets in deze kamer.')
 
     buff = random.randint(1, 2)
     if buff == 1:
         player_data['hp'] += 2
+        print_slow(' In deze kamer zie je een potion.')
+        print_slow('*Je drinkt het*')
         print_slow('Je hebt +2 HP gekregen.')
     elif buff == 2:
+        print_slow(' In deze kamer zie je een potion.')
+        print_slow('*je drinkt het*')
         player_data['attack'] += 1
+
         print_slow('Je hebt +1 attack gekregen.')
     time.sleep(2)
     clear_screen()
@@ -127,8 +136,7 @@ def kamer_9():
 # === [kamer 3] === #
 def kamer_3():
     print_slow('In deze kamer zie je een goblin-verkoper.')
-    
-    items_for_sale = {'schild': ('defense', 1), 'attack': ('attack', 1), 'sleutel': ('sleutel', 2)}
+
     while player_data['rubins'] > 0 and items_for_sale:
         print_slow(f"Beschikbare items te koop: {', '.join(items_for_sale.keys())}")
         print_slow(f"Je hebt {player_data['rubins']} rubin(en).")
@@ -137,7 +145,11 @@ def kamer_3():
         if item in items_for_sale:
             stat, cost = items_for_sale[item]
             if player_data['rubins'] >= cost:
-                player_data[stat] = player_data.get(stat, 0) + (1 if item != 'sleutel' else 0)
+               
+                if item == 'sleutel':
+                    player_data['sleutel'] = True
+                else:
+                    player_data[stat] += cost
                 player_data['rubins'] -= cost
                 items_for_sale.pop(item)
                 print_slow(f"Je hebt {item} gekocht! Je hebt nu {player_data['rubins']} rubin(en) over.")
@@ -147,10 +159,10 @@ def kamer_3():
             print_slow(f"Onjuist item. Kies uit: {', '.join(items_for_sale.keys())}")
 
     print_slow("Geen rubins meer of niets meer te koop.")
+    print(player_data)
+    time.sleep(5)
     clear_screen()
     kamer_4()
-
-
 # === [kamer 4] === #
 def kamer_4():
     print_slow(rooms[4])
@@ -165,7 +177,7 @@ def kamer_4():
 # === [kamer 5] === #
 def kamer_5():
     print_slow(rooms[5])
-    if player_data.get("sleutel", False):
+    if player_data['sleutel']:
         print_slow("Je opent de kist en wint het spel!")
     else:
         print_slow("Je hebt geen sleutel om de kist te openen. Het spel is voorbij.")

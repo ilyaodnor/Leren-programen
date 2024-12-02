@@ -1,26 +1,35 @@
+import threading
 import math, time, random, os , platform,sys, colorama
-def input_check(text, type,expected: list): # Input checken
-
+def input_check(text, type, expected: list = None): 
     while True:
         if type == int:
             try:
-                getal = int(input_slow(text, delay=0.2))
+                getal = int(input(text))
                 return getal
             except ValueError:
-                print('Voer in een integer! ')
+                print("Voer in een integer!")
         elif type == str:
-            string = str(input_slow(f'{text} '))
-            if string in expected:     
-                return string
+            string = input(f"{text} ").lower()
+            if expected: 
+                if string in expected:
+                    return string
+                else:
+                    print(f"Voer in een van de volgende opties: {expected}")
             else:
-                print(f'voer in ({expected})')
+                return string
         elif type == bool:
             try:
-                getal = bool(input_slow(text))
-                return getal
+                waarde = input(text).strip().lower()
+                if waarde in ['true', '1', 'yes', 'y', 'ja']:
+                    return True
+                elif waarde in ['false', '0', 'no', 'n', 'nee']: 
+                    return False
+                else:
+                    print("Voer 'true' of 'false' in!")
             except ValueError:
-                print('Voer in een getal!')
-
+                print("Voer een geldige waarde in!")
+        else:
+            print("Ongeldig type opgegeven!")
 
 
 def print_slow(text, delay=0.05,): 
@@ -29,6 +38,7 @@ def print_slow(text, delay=0.05,):
         sys.stdout.flush()
         time.sleep(delay)
     print()
+
 
 def input_slow(prompt, delay=0.05):
     print_slow(prompt, delay)

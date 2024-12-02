@@ -14,10 +14,13 @@ enemies = [
 ]
 
 
+items_for_sale = {'schild': ('defense', 1), 'attack': ('attack', 1), 'sleutel': ('sleutel', 2)}
+
 player_data = {
     "hp": 3,
     "attack": 1,
     "defense": 0,
-    "rubins": 0,
-    "sleutel": False
+    "rubins": 3,
+    "sleutel": False,
+    
 }
