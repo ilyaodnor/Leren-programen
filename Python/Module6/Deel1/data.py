@@ -14,7 +14,6 @@ CARAMEL_SAUS_HOORN = 0.60
 CARAMEL_SAUS_BAKJE = 0.90
 
 smaken_kiez = [
-    'mint',
     'vanile',
     'chocolade', 
     'aardbei']
@@ -25,7 +24,6 @@ BTW = 9
 # data van de klant
 besteling_zakelijke = {}
 gekozen_smaken = {
-    'mint':0,
     'vanile':0,
     'chocolade':0,
     'aardbei':0
