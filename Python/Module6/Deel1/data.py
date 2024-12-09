@@ -19,7 +19,7 @@ smaken_kiez = [
     'aardbei']
 
 LITER_IJS = 9.80
-BTW = 9
+BTW = 6
 
 # data van de klant
 besteling_zakelijke = {}
