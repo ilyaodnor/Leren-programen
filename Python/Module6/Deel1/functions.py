@@ -28,7 +28,7 @@ def input_check(text, type, expected: list = None):
                 if string in expected:
                     return string
                 else:
-                    print('sorry, dat snap ik niet. ')
+                    print('Sorry dat is geen optie die we aanbieden... ')
                     print(f"Voer in een van de volgende opties: {expected}")
             else:
                 return string
@@ -117,7 +117,7 @@ def bestelen_particuliere_klant(besteling: dict, smaken_kiez: list, gekozen_smak
             hoeveelheid = input_check("Hoeveel bolletjes wilt u? ", int)
             
             if hoeveelheid <= 0:
-                print("Sorry, dat snap ik niet.")
+                print("Sorry dat is geen optie die we aanbieden...")
                 continue
             
             if hoeveelheid > MAX_BOLLETJES:
@@ -139,7 +139,7 @@ def bestelen_particuliere_klant(besteling: dict, smaken_kiez: list, gekozen_smak
                 saus(hoeveelheid, gekozen_saus, besteling)
                 break
         except ValueError:
-            print("Sorry, dat snap ik niet.")
+            print("Sorry dat is geen optie die we aanbieden...")
 
 
 def rekening_particuliere_klant(besteling: dict, gekozen_smaken: dict, gekozen_saus: dict):
