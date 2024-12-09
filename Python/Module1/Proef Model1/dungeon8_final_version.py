@@ -113,7 +113,7 @@ if kamera1_of_2 == 1:
             exit()
         print(f'Je Hp is nu {player_health}')
         time.sleep(2)
-        print(f'In deze kamer verkoopt de goblin een schild, een zwaard en een sleutel voor 1 rupee elk.')
+      
         time.sleep(1)
 
 

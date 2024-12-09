@@ -1,5 +1,5 @@
 import time, os, sys
-
+from data import* 
 def input_check(text, type, expected: list = None): 
     while True:
         if type == int:
@@ -32,9 +32,6 @@ def input_check(text, type, expected: list = None):
         else:
             print("Ongeldig type opgegeven!")
 
-def serve_bolletje(aantal, form):
-    print(f"Hier is uw {form} met {aantal} bolletje(s).")
-
 
 
 def clear_screen():
@@ -52,3 +49,26 @@ def print_slow(text, delay=0.05,):
 def input_slow(prompt, delay=0.05):
     print_slow(prompt, delay)
     return input()
+
+
+def start():    
+    try:
+            hoeveelheid = input_check("Hoeveel bolletjes wilt u? ", int)
+            if 1 <= hoeveelheid <= 3:
+                form_type = input_check(
+                    f"Wilt u deze {hoeveelheid} bolletje(s) in een hoorntje of een bakje? ", str, SERVER_OPTIES
+                )
+                if form_type in ["een hoorntje", "hoorn", "een hoorn"]:
+                    form_type = "hoorntje"
+                elif form_type in ["bak", "bakje", "een bak", "een bakje"]:
+                    form_type = "bakje"
+                # serve_bolletje(hoeveelheid, form_type)
+                return f"Hier is uw {form_type} met {hoeveelheid} bolletje(s)."
+            elif 4 <= hoeveelheid <= MAX_BOLLETJES:
+                # print(f"Dan krijgt u van mij een bakje met {hoeveelheid} bolletjes.")
+                return f"Dan krijgt u van mij een bakje met {hoeveelheid} bolletjes."
+            else:
+                return "Sorry, zulke grote bakken hebben we niet."
+
+    except ValueError:
+            print("Sorry, dat snap ik niet.")
