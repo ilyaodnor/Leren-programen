@@ -37,3 +37,4 @@ besteling = {
 }
 
 rekening_text = '---------["Papi Gelato"]---------'
+vout_melding = 'Sorry dat is geen optie die we aanbieden...'

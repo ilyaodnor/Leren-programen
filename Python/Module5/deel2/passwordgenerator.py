@@ -43,3 +43,5 @@ def passwordgenerator():
                 continue
             else:
                 return wachtwoord
+for i in range(50):
+    print(passwordgenerator())

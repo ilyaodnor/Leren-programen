@@ -28,14 +28,14 @@ def input_check(text, type, expected: list = None):
                 if string in expected:
                     return string
                 else:
-                    print('Sorry dat is geen optie die we aanbieden... ')
+                    print(vout_melding)
                     print(f"Voer in een van de volgende opties: {expected}")
             else:
                 return string
         elif type == bool:
             try:
                 waarde = input(text).strip().lower()
-                if waarde in ['true', '1', 'yes', 'y', 'ja']:
+                if waarde in ['true', '1', 'yes', 'y', 'ja', 'j']:
                     return True
                 elif waarde in ['false', '0', 'no', 'n', 'nee']: 
                     return False
@@ -117,7 +117,7 @@ def bestelen_particuliere_klant(besteling: dict, smaken_kiez: list, gekozen_smak
             hoeveelheid = input_check("Hoeveel bolletjes wilt u? ", int)
             
             if hoeveelheid <= 0:
-                print("Sorry dat is geen optie die we aanbieden...")
+                print(vout_melding)
                 continue
             
             if hoeveelheid > MAX_BOLLETJES:
@@ -139,7 +139,7 @@ def bestelen_particuliere_klant(besteling: dict, smaken_kiez: list, gekozen_smak
                 saus(hoeveelheid, gekozen_saus, besteling)
                 break
         except ValueError:
-            print("Sorry dat is geen optie die we aanbieden...")
+            print(vout_melding)
 
 
 def rekening_particuliere_klant(besteling: dict, gekozen_smaken: dict, gekozen_saus: dict):
@@ -199,6 +199,6 @@ def rekening_zakijke(besteling):
         print(f"{smaak_str:<20}{str(aantal):>5} x €{LITER_IJS:>5.2f} = €{prijs:6.2f}")
     print("                         ----+")
     print(f"Subtotaal              = €{totaal:6.2f}")
-    print(f'BTW (9%)               = €{btw:6.2f}')
+    print(f'BTW ({BTW}%)               = €{btw:6.2f}')
     print('-' * len(rekening_text))
 
